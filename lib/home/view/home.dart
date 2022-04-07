@@ -3,10 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:happyminds/call/view/call.dart';
 import 'package:happyminds/chat/chat.dart';
 import 'package:happyminds/home/bloc/home_bloc.dart';
-import 'package:happyminds/home/model/psychiatrist.dart';
 import 'package:happyminds/info/view/info.dart';
+import 'package:happyminds/video_call/view/video_call.dart';
 
 import '../widgets/menubutton.dart';
 
@@ -76,7 +77,7 @@ class HomeView extends StatelessWidget {
                   if (cType == CommunicationType.call && ps.name!.isNotEmpty) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const ChatView(),
+                        builder: (context) => const CallView(),
                       ),
                     );
                   } else {
@@ -103,7 +104,9 @@ class HomeView extends StatelessWidget {
                   if (cType == CommunicationType.chat && ps.name!.isNotEmpty) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const ChatView(),
+                        builder: (context) => ChatView(
+                          ps: ps,
+                        ),
                       ),
                     );
                   } else {
@@ -127,10 +130,11 @@ class HomeView extends StatelessWidget {
               curve: Curves.bounceOut,
               child: MenuButton.video(
                 fun: () {
-                  if (cType == CommunicationType.call && ps.name!.isNotEmpty) {
+                  if (cType == CommunicationType.videoCall &&
+                      ps.name!.isNotEmpty) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const ChatView(),
+                        builder: (context) => const VideoCall(),
                       ),
                     );
                   } else {
