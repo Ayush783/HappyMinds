@@ -20,7 +20,7 @@ class Psychiatrist extends Equatable {
   //clients
   //etc
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [name, number];
 }
 
 final List<Map<String, dynamic>> mockData = [
