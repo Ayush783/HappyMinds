@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:happyminds/home/bloc/home_bloc.dart';
 
 class MenuButton extends StatelessWidget {
   const MenuButton({
@@ -30,6 +31,11 @@ class MenuButton extends StatelessWidget {
   const MenuButton.info({Function? fun})
       : size = 60,
         iconPath = 'info',
+        onTap = fun;
+
+  const MenuButton.cancel({Function? fun})
+      : size = 72,
+        iconPath = 'cancel',
         onTap = fun;
 
   final Function? onTap;
