@@ -8,3 +8,9 @@ abstract class HomeEvent extends Equatable {
 }
 
 class MenuTapped extends HomeEvent {}
+
+class FindPsychiatrist extends HomeEvent {
+  final String communicationType;
+
+  const FindPsychiatrist(this.communicationType);
+}
