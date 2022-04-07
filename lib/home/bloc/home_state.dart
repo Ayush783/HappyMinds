@@ -26,29 +26,29 @@ class HomeState extends Equatable {
   const HomeState({
     this.showMenu = false,
     this.searching = false,
-    this.ps,
-    this.communicationType,
+    this.ps = const Psychiatrist.empty(),
+    this.communicationType = CommunicationType.none,
   });
 
   final bool showMenu;
   final bool searching;
-  final Psychiatrist? ps;
-  final CommunicationType? communicationType;
+  final Psychiatrist ps;
+  final CommunicationType communicationType;
 
   HomeState copyWith({
     bool? showMenu,
     bool searching = false,
-    Psychiatrist? ps,
-    CommunicationType? type,
+    Psychiatrist ps = const Psychiatrist.empty(),
+    CommunicationType type = CommunicationType.none,
   }) {
     return HomeState(
       showMenu: showMenu!,
       searching: searching,
-      ps: ps ?? const Psychiatrist.empty(),
-      communicationType: communicationType ?? CommunicationType.none,
+      ps: ps,
+      communicationType: communicationType,
     );
   }
 
   @override
-  List<Object> get props => [showMenu, searching, ps!, communicationType!];
+  List<Object> get props => [showMenu, searching, ps, communicationType];
 }
