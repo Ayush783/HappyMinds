@@ -77,7 +77,7 @@ class HomeView extends StatelessWidget {
                   if (cType == CommunicationType.call && ps.name!.isNotEmpty) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const CallView(),
+                        builder: (context) => CallView(ps: ps),
                       ),
                     );
                   } else {
@@ -134,7 +134,7 @@ class HomeView extends StatelessWidget {
                       ps.name!.isNotEmpty) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const VideoCall(),
+                        builder: (context) => VideoCall(ps: ps),
                       ),
                     );
                   } else {
@@ -193,6 +193,7 @@ class HomeView extends StatelessWidget {
                       const CircularProgressIndicator(
                         color: Colors.white,
                       ),
+                      const SizedBox(height: 8),
                       Text(
                         'Searching for a Psychiatrist🔍',
                         style: GoogleFonts.poppins(
