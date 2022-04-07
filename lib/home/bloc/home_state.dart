@@ -45,7 +45,7 @@ class HomeState extends Equatable {
       showMenu: showMenu!,
       searching: searching,
       ps: ps,
-      communicationType: communicationType,
+      communicationType: type,
     );
   }
 

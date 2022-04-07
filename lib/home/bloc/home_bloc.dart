@@ -22,20 +22,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
   }
 
-  void _onFindPsychiatrist(FindPsychiatrist event, Emitter emit) {
+  void _onFindPsychiatrist(FindPsychiatrist event, Emitter emit) async {
     emit(
       state.copyWith(
         searching: true,
+        showMenu: true,
         type: event.communicationType.getCommunication(),
       ),
     );
     //mock searching
-    Future.delayed(const Duration(seconds: 3)).then(
-      (value) => emit(
-        state.copyWith(
-          ps: Psychiatrist.fromJson(
-            mockData[math.Random().nextInt(mockData.length)],
-          ),
+    await Future.delayed(const Duration(seconds: 3));
+    emit(
+      state.copyWith(
+        showMenu: true,
+        type: event.communicationType.getCommunication(),
+        ps: Psychiatrist.fromJson(
+          mockData[math.Random().nextInt(mockData.length)],
         ),
       ),
     );
